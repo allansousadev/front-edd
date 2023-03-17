@@ -1,2 +1,2 @@
-# front-edd
+# front-end
 Estudos de front-end
