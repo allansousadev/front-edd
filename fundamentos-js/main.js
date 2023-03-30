@@ -47,5 +47,11 @@
 // console.log(typeof user)
 
 const fullName = "Maria de Sá"
-console.log(fullName.length)
-console.log(typeof fullName)
+console.log(fullName.length) // count the number of characters
+console.log(typeof fullName) // type of fullName
+
+
+const stringToArray = fullName.split(" ") // split by spaces
+console.log(stringToArray)
+console.log(fullName.toLowerCase()) // convert to lower case
+console.log(fullName.toUpperCase()) // convert to upper case
