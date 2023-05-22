@@ -49,3 +49,14 @@ console.log(--operatorBinaryDecrement)
 
 // Operador ternário
 console.log(true ? 'alo' : 'nada')
+
+/*
+  new
+
+  * left-hand-side expression
+  * cria um novo objeto
+ */
+
+  let name  = new String('Vanessa')
+  let age  = new Number('16')
+  console.log(name, age)
