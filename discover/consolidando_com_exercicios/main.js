@@ -70,3 +70,97 @@ console.log(getScore(69))
 console.log(getScore(37))
 console.log(getScore(46))
 console.log(getScore(98))
+
+
+
+/*
+
+Crie um objeto que possuirá 2 propriedades, ambas do tipo array:
+    * receitas: [] 
+    * despesas: []
+Agora, crie uma função que irá calcular o total de receitas e 
+despesas e irá mostrar uma mensagem se a família está com 
+saldo positivo ou negativo, seguido do valor do saldo.
+
+*/
+
+let family = {
+  incomes: [3500, 3200, 250, 150.65],
+  expenses: [356.88, 250, 780, 654]
+}
+
+function sum(array) {
+  let total = 0
+  
+  for(let value of array) {
+    total += value
+  }
+  
+  return total
+
+}
+
+function calculateBalance() {
+  const calculateIncomes = sum(family.incomes)
+  const calculateExpenses = sum(family.expenses)
+
+  const total = calculateIncomes - calculateExpenses
+  
+  const itOk = total >= 0
+  
+  let balanceText = "negativo"
+
+  if (itOk) {
+    balanceText = "positivo"
+  }
+
+  console.log(`Seu saldo é ${balanceText}:R$:${total.toFixed(2)}`)
+
+}
+
+calculateBalance()
+
+
+/*
+
+Crie uma função que receba uma string em celsius ou fahrenheit
+e faça a transformação de uma unidade para outra 
+    C = (F - 32) * 5/9 
+    F = C * 9/5 + 32
+
+*/
+
+// Transform('50F)
+
+function transformDegree(degree) {
+  const celsiusExists = degree.toUpperCase().includes('C')
+  const fahrenheitExists = degree.toUpperCase().includes('F')
+
+    // Fluxo de erro
+    if(!celsiusExists && !fahrenheitExists) {
+      throw new Error('Grau não identificado')
+    }
+
+    // Fluxo ideal, F -> C
+    let updatedDegree = Number(degree.toUpperCase().replace("F", ""))
+    let form = fahrenheit => fahrenheit - 32 * 5/9
+    let degreeSign = 'C'
+
+    // Fluxo alternativo C -> F
+    if(celsiusExists) {
+      updatedDegree = Number(degree.toUpperCase().replace("C", ""))
+      form = celsius => celsius * 9/5 + 32
+      degreeSign = 'F'
+    }
+    
+
+    return form(updatedDegree) + degreeSign
+}
+
+try {
+  console.log(transformDegree('10C'))
+  console.log(transformDegree('50F'))
+  transformDegree('50Z')
+} catch (error) {
+  console.log(error.message)
+}
